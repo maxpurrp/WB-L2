@@ -1,0 +1,11 @@
+Sleep
+Wake
+Wake
+Work
+Work
+Work
+Work
+Work
+Work
+Sleep
+Eat
