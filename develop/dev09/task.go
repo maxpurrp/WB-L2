@@ -15,11 +15,7 @@ import (
 Программа должна проходить все тесты. Код должен проходить проверки go vet и golint.
 */
 
-func myWget(url string, depth int) error {
-	// check if the depth limit is reached
-	if depth <= 0 {
-		return nil // depth limit reached, terminate recursion
-	}
+func myWget(url string) error {
 
 	// create an HTTP client
 	var client http.Client
@@ -63,20 +59,19 @@ func myWget(url string, depth int) error {
 func main() {
 	// get command-line arguments
 	args := os.Args
+	fmt.Println(args)
 
 	// check if there are enough arguments
-	if len(args) < 3 {
-		fmt.Println("Usage: program <url> <depth>")
+	if len(args) < 2 {
+		fmt.Println("Usage: program <url>")
 		return
 	}
 
 	// extract URL and depth from command-line arguments
 	url := args[1]
-	depth := 1 // Default depth.
-	fmt.Sscan(args[2], &depth)
 
-	// call myWget function with the specified URL and depth
-	err := myWget(url, depth)
+	// call myWget function with the specified URL
+	err := myWget(url)
 	if err != nil {
 		fmt.Printf("error: %s \n", err)
 	}
